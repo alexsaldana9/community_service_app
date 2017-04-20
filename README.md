@@ -7,9 +7,15 @@ It will be great if we can do a "Pay It Forward" kind of thing. You can invite f
 2 types of users: service providers (students, regularGOOD people) and event community service managers (organizations).
 
 Notes:
+
 logo = earth hold by a hand
+
 show the events in google maps 
-have users fill a profile - name, address, radius willing to travel,
+
+have users fill a profile - name, address, radius willing to travel
+
 email subscription for type of events (health, elderly, animal care, homeless help)
+
 send email alerts to users according to their interests and events that will happen in the area
+
 later on have a photo sharing event page, and tag along facebook fiends
