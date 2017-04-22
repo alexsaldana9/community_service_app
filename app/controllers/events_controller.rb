@@ -6,6 +6,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @lat = params[:lat]
+    @lon = params[:long]
   end
 
   # GET /events/1
