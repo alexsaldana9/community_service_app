@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #b6e9be;
+  color: #4d7269;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+th {
+  padding: 15px;
+}
+
+.navbar .navbar-inverse .navbar-fixed-top {
+  background-color: #4d7269;
+}
