@@ -1,3 +1,8 @@
 [o:Set:
+<<<<<<< HEAD
 @hash{
 I"environment-version:ETTI"environment-paths;TTI"rails-env;TTI"processors:;TTI"Ffile-digest://app/assets/fonts/glyphicons-halflings-regular.woff2;TT
+=======
+@hash}
+I"environment-version:ETTI"environment-paths;TTI"rails-env;TTI"processors:;TTI"Ffile-digest://app/assets/fonts/glyphicons-halflings-regular.woff2;TTF
+>>>>>>> 2ba79ecf9a7d1543972fa9aafc8131341b7487ee
