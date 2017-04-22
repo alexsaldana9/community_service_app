@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421184543) do
+ActiveRecord::Schema.define(version: 20170422191834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,13 @@ ActiveRecord::Schema.define(version: 20170421184543) do
     t.integer  "category_id"
     t.integer  "user_id"
     t.date     "date"
-    t.string   "location"
+    t.string   "street_address"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
@@ -48,9 +51,12 @@ ActiveRecord::Schema.define(version: 20170421184543) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.string   "location"
+    t.string   "street_address"
     t.integer  "age"
     t.string   "occupation"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

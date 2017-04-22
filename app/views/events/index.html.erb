@@ -9,7 +9,10 @@
       <th>Category</th>
       <th>User</th>
       <th>Date</th>
-      <th>Location</th>
+      <th>Street Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -22,8 +25,15 @@
         <td><%= event.category.name %></td>
         <td><%= event.user.name %></td>
         <td><%= event.date %></td>
-        <td><%= event.location %></td>
+        <td><%= event.street_address %></td>
+        <td><%= event.city %></td>
+        <td><%= event.state %></td>
+        <td><%= event.zipcode %></td>
+
+
         <td><%= event.description %></td>
+
+        
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
