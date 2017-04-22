@@ -19,8 +19,8 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.category %></td>
-        <td><%= event.user %></td>
+        <td><%= event.category.name %></td>
+        <td><%= event.user.name %></td>
         <td><%= event.date %></td>
         <td><%= event.location %></td>
         <td><%= event.description %></td>
