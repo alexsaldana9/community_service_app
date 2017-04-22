@@ -12,3 +12,5 @@ Rails.application.config.assets.precompile += %w( bootstrap.min.css 1-col-portfo
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
