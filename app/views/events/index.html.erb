@@ -34,7 +34,7 @@
 
         <td><%= event.description %></td>
 
-        
+
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -62,8 +62,16 @@
     </style>
 
 <script>
-    var latitude  = <%= @lat %>;
-    var longitude = <%= @lon %>;
+var latitude;
+var longitude;
+
+if (!latitude || !longitude){
+  latitude = 25.8030828
+  longitude = -80.2043746
+} else {
+  latitude  = <% if !@lat %> "" <%end%>
+  longitude = <% if !@lon %> "" <%end%>
+  }
 </script>
 
 <script>
