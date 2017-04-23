@@ -11,6 +11,6 @@ class Event < ApplicationRecord
   end
 
   def address_for_geocode
-    return street_address + " " + city + " " + state + " " + zipcode.to_s
+    return street_address + ", " + city + ", " + state + " " + zipcode.to_s
   end
 end
