@@ -1,22 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Event :</strong>
   <%= @event.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @event.category %>
+  <%= @event.category.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @event.user %>
+  <%= @event.user.name %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>For event information contact:</strong>
+  <%= @event.user.email %>
+</p>
+
+
+<p>
+  <strong>Event Date:</strong>
   <%= @event.date %>
 </p>
 
