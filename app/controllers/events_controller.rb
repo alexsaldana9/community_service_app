@@ -14,9 +14,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     puts "event details #{@event}"
-    geocode = @event.street_address + " " + @event.city + " " + @event.state + " " + @event.zipcode.to_s
-    puts geocode
   end
+
 
   # GET /events/new
   def new
