@@ -22,7 +22,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, events_path(:lat => 38.9072, :long => -77.0369) %></td>
+        <td><%= link_to event.name, events_path(:lat => event.latitude, :long => event.longitude) %></td>
         <td><%= event.category.name %></td>
         <td><%= event.user.name %></td>
         <td><%= event.date %></td>
@@ -69,9 +69,17 @@ if (!latitude || !longitude){
   latitude = 25.8030828
   longitude = -80.2043746
 } else {
-  latitude  = <% if !@lat %> "" <%end%>
-  longitude = <% if !@lon %> "" <%end%>
-  }
+  <% if @lat %>
+    latitude  = <%= @lat %>
+  <% end %> 
+
+  <% if @long %>
+    longitude = <%= @long %>
+  <% end %>
+}
+
+console.log("Anchor Coordinates: (" + latitude + ", " + longitude + ")" )
+
 </script>
 
 <script>
