@@ -5,9 +5,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.order(params[:sort])
     @lat = params[:lat]
     @lon = params[:long]
+    category = params[:category]
   end
 
   # GET /events/1
@@ -41,6 +42,8 @@ class EventsController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json

@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   geocoded_by :address_for_geocode #, :latitude  => :lat, :longitude => :lon # ActiveRecord
   after_validation :geocode
 
+
   def to_s
     return "Event: #{name}, address: #{address_for_geocode}, (#{latitude}, #{longitude})"
   end
@@ -13,4 +14,3 @@ class Event < ApplicationRecord
     return street_address + " " + city + " " + state + " " + zipcode.to_s
   end
 end
-

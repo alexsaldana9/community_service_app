@@ -60,6 +60,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    filterrific (2.1.2)
     geocoder (1.4.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -170,6 +171,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  filterrific
   geocoder
   jbuilder (~> 2.5)
   jquery-rails

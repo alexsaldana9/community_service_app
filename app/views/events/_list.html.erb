@@ -1,0 +1,26 @@
+<%# app/views/students/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info events # provided by will_paginate %>
+  </div>
+
+  <table>
+    <tr>
+      <th><%= filterrific_sorting_link(@filterrific, :name) %></th>
+      <th><%= filterrific_sorting_link(@filterrific, :street_address) %></th>
+      <th><%= filterrific_sorting_link(@filterrific, :city) %></th>
+      <th><%= filterrific_sorting_link(@filterrific, :created_at) %></th>
+    </tr>
+    <% students.each do |student| %>
+      <tr>
+        <td><%= link_to(event.name, event_path(event)) %></td>
+        <td><%= event.street_address %></td>
+        <td><%= event.city %></td>
+        <td><%= event.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate events # provided by will_paginate %>
