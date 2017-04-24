@@ -20,6 +20,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+  
   end
 
   # POST /categories
