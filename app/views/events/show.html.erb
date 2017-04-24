@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @event.event_image.url %>
+</p>
+
+<p>
   <strong>Event :</strong>
   <%= @event.name %>
 </p>
@@ -52,10 +56,7 @@
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @event.event_image.url %>
-</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
