@@ -20,13 +20,14 @@
       <%= link_to "Sort by Proximity", sort: "street_address" %>
     </th>
     <th>
-      <%= select_tag "category", options_from_collection_for_select(Category.all, :id, :name), prompt: "Sort By Category", sort: "category.id.name" %>
+    <%= form_tag filter_event_path do %>
+        <%= select_tag :categories, options_from_collection_for_select(@categories.where.not(:name=>nil), 'id', 'name'), :include_blank => "Filter by Category..",:required=>true %>
+        <%= submit_tag "filter" %>
+    <% end %>
     </th>
     <th colspan="12"></th>
   </tr>
 </table>
-
-
 
 <table>
   <thead>
@@ -95,27 +96,10 @@
     </style>
 
 <script>
-var latitude;
-var longitude;
-
-if (!latitude || !longitude){
-  latitude = 25.8030828
-  longitude = -80.2043746
-} else {
-  <% if @lat %>
-    latitude  = <%= @lat %>
-  <% end %>
-
-  <% if @long %>
-    longitude = <%= @long %>
-  <% end %>
-}
+var latitude = <%= @lat || 25.8030828 %>
+var longitude = <%= @long || -80.2043746 %>
 
 console.log("Anchor Coordinates: (" + latitude + ", " + longitude + ")" )
-
-</script>
-
-<script>
 
 var map, infoWindow;
 function initMap() {
@@ -140,12 +124,14 @@ map = new google.maps.Map(document.getElementById('map'), {
         lng: longitude
 
       };
+      console.log(pos); 
 
       var marker = new google.maps.Marker({
       position: pos,
       map: map,
       title: 'Hello World!'
     });
+
 
       // infoWindow.setPosition(pos);
       // infoWindow.setContent('Location found.');

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root "events#index"
   resources :users
 
+  post "/filter" => "events#index", as: "filter_event"
+
 end
