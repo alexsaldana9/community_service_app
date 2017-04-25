@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :category
   has_and_belongs_to_many :users
+  belongs_to :user
 
   geocoded_by :address_for_geocode #, :latitude  => :lat, :longitude => :lon # ActiveRecord
   after_validation :geocode
