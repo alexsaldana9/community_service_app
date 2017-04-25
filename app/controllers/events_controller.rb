@@ -88,7 +88,7 @@ class EventsController < ApplicationController
       @categories = Category.all
     end
 
-    def categories 
+    def categories
       @categories = Category.all
     end
 
