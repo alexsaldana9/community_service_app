@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :categories, :states
 
   # GET /events
   # GET /events.json
@@ -21,8 +22,8 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @categories = Category.all
   end
+
 
   # GET /events/1/edit
   def edit
@@ -80,4 +81,13 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :category_id, :user_id, :date, :street_address, :city, :state, :zipcode, :description)
     end
+
+    def categories 
+      @categories = Category.all
+    end
+
+    def states
+      @states = StatesDropDown.states
+    end
+
 end
