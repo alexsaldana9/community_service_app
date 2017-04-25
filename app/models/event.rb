@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   validates_attachment_content_type :event_image, content_type: /\Aimage\/.*\z/
 
   def to_s
-    return "Event: #{name}, address: #{address_for_geocode}, (#{latitude}, #{longitude})"
+    return "Event: #{name}, address: #{address_for_geocode}, (#{latitude}, #{longitude}), #{category_id}"
   end
 
   def address_for_geocode

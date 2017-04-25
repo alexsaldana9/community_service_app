@@ -8,9 +8,24 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.order(params[:sort])
+
     @lat = params[:lat]
     @lon = params[:long]
-    category = params[:category]
+    category_id = params[:cat]
+    puts "selected category id #{category_id} param_data_type: #{category_id.class}"
+
+    if category_id != nil
+      category_id = category_id.to_i
+
+      new_list = []
+      @events.each do |event|
+        if event.category_id == category_id
+          new_list.push(event)
+        end
+      end
+
+      @events = new_list
+    end
   end
 
   # GET /events/1
@@ -23,6 +38,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @categories = Category.order(params[:sort])
   end
 
 
