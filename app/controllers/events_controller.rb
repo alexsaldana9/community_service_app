@@ -1,11 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
   before_action :categories, :states
-=======
-  before_action :categories
->>>>>>> 7276001ee93ac211e3acc584c3eb2eb3332d405e
 
   # GET /events
   # GET /events.json
@@ -91,7 +87,7 @@ class EventsController < ApplicationController
       @categories = Category.all
     end
 
-    def categories 
+    def categories
       @categories = Category.all
     end
 
