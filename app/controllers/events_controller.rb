@@ -1,7 +1,11 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+<<<<<<< HEAD
   before_action :categories, :states
+=======
+  before_action :categories
+>>>>>>> 7276001ee93ac211e3acc584c3eb2eb3332d405e
 
   # GET /events
   # GET /events.json
@@ -27,6 +31,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+
   end
 
   # POST /events
@@ -79,7 +84,11 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :category_id, :user_id, :date, :street_address, :city, :state, :zipcode, :description)
+      params.require(:event).permit(:name, :category_id, :user_id, :date, :street_address, :city, :state, :zipcode, :description, :event_image)
+    end
+
+    def categories
+      @categories = Category.all
     end
 
     def categories 
