@@ -14,9 +14,19 @@
   <%= @event.category.name %>
 </p>
 
+
+
 <p>
   <strong>Created by:</strong>
   <%= @event.user.name %>
+</p>
+<p>
+  <strong>Attendees (<%= @event.users.length %>)</strong>
+  <% @event.users.each {|user| %>
+  <div class="event-attendee">
+    <p><%= user.name %></p>
+  </div>
+  <% } %>
 </p>
 
 <p>

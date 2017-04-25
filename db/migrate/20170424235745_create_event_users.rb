@@ -5,6 +5,6 @@ class CreateEventUsers < ActiveRecord::Migration[5.0]
       t.column :user_id, :integer
     end
 
-      add_index(:event_users, [:user_id, :event_id], :unique => true)
+      add_index(:event, [:user_id, :event_id], :unique => true)
   end
 end
