@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>My Profile</h1>
+<h1>My Profile</h1><br><br>
 
 <p>
   <strong>Name:</strong>
@@ -10,6 +10,11 @@
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= image_tag @user.avatar.url %>
 </p>
 
 <p>

@@ -1,10 +1,36 @@
+
 <p id="notice"><%= notice %></p>
+
 <div id="map"> </div>
 
-<h1>Events</h1>
+
+<div id="events"><br>
+<h1>Events</h1><br><br>
+
+<table width=100%>
+  <tr>
+    <th>
+      <%= link_to "Sort by Date", sort: "date" %>
+    </th>
+    <th>
+      <%= link_to "Sort by Name", sort: "name" %>
+    </th>
+    <th>
+      <!-- placeholder for proximity -->
+      <%= link_to "Sort by Proximity", sort: "street_address" %>
+    </th>
+    <th>
+      <%= select_tag "category", options_from_collection_for_select(Category.all, :id, :name), prompt: "Sort By Category", sort: "category" %>
+    </th>
+    <th colspan="12"></th>
+  </tr>
+</table>
+
+
 
 <table>
   <thead>
+
     <tr>
       <th>Name</th>
       <th>Category</th>
@@ -22,7 +48,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, events_path(:lat => 38.9072, :long => -77.0369) %></td>
+        <td><%= link_to event.name, events_path(:lat => event.latitude, :long => event.longitude) %></td>
         <td><%= event.category.name %></td>
         <td><%= event.user.name %></td>
         <td><%= event.date %></td>
@@ -47,11 +73,18 @@
 
 <%= link_to 'New Event', new_event_path %>
 
+</div>
+<br /><br />
+
+
+
+
 <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
         height: 50%;
+        margin-top: 50px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -69,9 +102,17 @@ if (!latitude || !longitude){
   latitude = 25.8030828
   longitude = -80.2043746
 } else {
-  latitude  = <% if !@lat %> "" <%end%>
-  longitude = <% if !@lon %> "" <%end%>
-  }
+  <% if @lat %>
+    latitude  = <%= @lat %>
+  <% end %>
+
+  <% if @long %>
+    longitude = <%= @long %>
+  <% end %>
+}
+
+console.log("Anchor Coordinates: (" + latitude + ", " + longitude + ")" )
+
 </script>
 
 <script>

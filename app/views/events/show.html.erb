@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <%= image_tag @event.event_image.url %>
+</p>
+
+<p>
+  <strong>Event :</strong>
   <%= @event.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @event.category %>
+  <%= @event.category.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
+  <strong>Created by:</strong>
+  <%= @event.user.name %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>For event information contact:</strong>
+  <%= @event.user.email %>
+</p>
+
+
+<p>
+  <strong>Event Date:</strong>
   <%= @event.date %>
 </p>
 
@@ -45,6 +55,8 @@
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

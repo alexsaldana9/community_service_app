@@ -1,27 +1,33 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :categories, :states
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.order(params[:sort])
     @lat = params[:lat]
     @lon = params[:long]
+    category = params[:category]
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    puts "event details #{@event}"
   end
+
 
   # GET /events/new
   def new
     @event = Event.new
   end
 
+
   # GET /events/1/edit
   def edit
+
   end
 
   # POST /events
@@ -39,6 +45,8 @@ class EventsController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
@@ -72,6 +80,19 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :category_id, :user_id, :date, :street_address, :city, :state, :zipcode, :description)
+      params.require(:event).permit(:name, :category_id, :user_id, :date, :street_address, :city, :state, :zipcode, :description, :event_image)
     end
+
+    def categories
+      @categories = Category.all
+    end
+
+    def categories
+      @categories = Category.all
+    end
+
+    def states
+      @states = StatesDropDown.states
+    end
+
 end

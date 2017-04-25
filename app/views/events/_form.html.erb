@@ -16,10 +16,7 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
-  </div>
+
 
   <div class="field">
     <%= f.label :user_id %>
@@ -43,18 +40,31 @@
 
   <div class="field">
     <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= select_tag :state, options_for_select(@states) %>
+
   </div>
+
+
 
   <div class="field">
     <%= f.label :zipcode %>
     <%= f.number_field :zipcode %>
   </div>
 
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, @categories, :id, :name, :prompt => "Select a category" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_image %>
+    <%= f.file_field :event_image %>
   </div>
 
   <div class="actions">
