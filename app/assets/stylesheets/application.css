@@ -80,3 +80,7 @@ th {
 style {
   margin-top:
 }
+
+img {
+  max-width: 600px;
+}

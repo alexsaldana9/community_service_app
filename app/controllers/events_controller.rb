@@ -33,16 +33,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     puts "event details #{@event}"
-
-      new_search = []
-      @events.each do |event|
-        if event.category_id == category_id
-          new_search.push(event)
-        end
-      end
-      @events = new_search
-
-    puts "show the cat number of url = #{@cat}"
   end
 
 
@@ -50,6 +40,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @categories = Category.order(params[:sort])
+    @states = StatesDropDown.states
   end
 
 
@@ -61,6 +52,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -72,6 +64,9 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
+
+
   end
 
 

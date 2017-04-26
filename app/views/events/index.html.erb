@@ -49,11 +49,11 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, events_path(:lat => event.latitude, :long => event.longitude) %></td>
+        <td><%= link_to event.name, event %></td>
         <td><%= event.category.name %></td>
-        <td><%= event.users.name %></td>
+        <td><%= event.user.name %></td>
         <td><%= event.date %></td>
-        <td><%= event.street_address %></td>
+        <td><%= link_to event.street_address, events_path(:lat => event.latitude, :long => event.longitude) %></td>
         <td><%= event.city %></td>
         <td><%= event.state %></td>
         <td><%= event.zipcode %></td>
@@ -62,7 +62,6 @@
         <td><%= event.description %></td>
 
 
-        <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

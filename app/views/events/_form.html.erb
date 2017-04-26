@@ -12,15 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-
-
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
@@ -40,7 +37,7 @@
 
   <div class="field">
     <%= f.label :state %>
-    <%= select_tag :state, options_for_select(@states) %>
+    <%= f.collection_select(:state, @states, :last, :first)   %>
 
   </div>
 
