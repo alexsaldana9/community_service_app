@@ -50,7 +50,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= link_to event.name, event %></td>
-        <td><%= event.category.name %></td>
+        <td><%= link_to event.category.name, event.category %></td>
         <td><%= event.user.name %></td>
         <td><%= event.date %></td>
         <td><%= link_to event.street_address, events_path(:lat => event.latitude, :long => event.longitude) %></td>
