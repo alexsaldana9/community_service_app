@@ -66,6 +66,21 @@
   <%= @event.description %>
 </p>
 
+<% if !(@event.users).include?(current_user) %>
+
+<div class="field">
+  <%= button_to 'Attend', attend_path(@event), method: :post, confirm: 'Are you sure?' %>
+</div>
+
+<% else %>
+
+<div class="field">
+  <%= button_to 'Cancel attending', attend_delete_path(@event), method: :delete, confirm: 'Are you sure?' %>
+</div>
+
+<% end %>
+
+<br />
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :attend, :attend_delete]
   before_action :categories, :states
 
 
@@ -34,13 +34,7 @@ class EventsController < ApplicationController
   def show
     puts "event details #{@event}"
 
-      new_search = []
-      @events.each do |event|
-        if event.category_id == category_id
-          new_search.push(event)
-        end
-      end
-      @events = new_search
+
 
     puts "show the cat number of url = #{@cat}"
   end
@@ -98,6 +92,18 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def attend
+    @event.users << current_user
+    @event.save
+    redirect_to @event
+  end
+
+
+  def attend_delete
+    current_user.events.delete(@event)
+    redirect_to @event
   end
 
   private

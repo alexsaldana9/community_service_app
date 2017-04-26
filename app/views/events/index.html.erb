@@ -51,7 +51,7 @@
       <tr>
         <td><%= link_to event.name, events_path(:lat => event.latitude, :long => event.longitude) %></td>
         <td><%= event.category.name %></td>
-        <td><%= event.users.name %></td>
+        <td><%= event.user.name %></td>
         <td><%= event.date %></td>
         <td><%= event.street_address %></td>
         <td><%= event.city %></td>
@@ -124,7 +124,7 @@ map = new google.maps.Map(document.getElementById('map'), {
         lng: longitude
 
       };
-      console.log(pos); 
+      console.log(pos);
 
       var marker = new google.maps.Marker({
       position: pos,
